@@ -2,14 +2,14 @@ ESX = exports["es_extended"]:getSharedObject()
 
 --Blip Locations
 local shops = {
-    {title="Service Center", colour=0, id=566, x = 110.24, y = 6626.63, z = 31.77}, -- Paleto Bay @ zip 1012
-    {title="Service Center", colour=0, id=566, x = 1141.54, y = -779.90, z = 57.58}, -- Mirror Park
-    {title="Service Center", colour=0, id=566, x = -35.92, y = -1052.32, z = 28.38}, -- Bennys near PDM (A Gabz MLO)
-    {title="Service Center", colour=0, id=566, x = 2511.34, y = 4109.47, z = 38.10}, -- Sandy Shores @ zip 2048
-    {title="Service Center", colour=0, id=566, x = -69.38, y = -1341.15, z = 28.80}, -- South Los Santos @ zip 9044
-    {title="Service Center", colour=0, id=566, x = 479.27, y = -1888.36, z = 25.64}, -- South Los Santos @ zip 9181
-    {title="Service Center", colour=0, id=566, x = 1174.78, y = 2640.26, z = 37.31}, -- Grand Senora @ zip 4025
-    {title="Service Center", colour=0, id=566, x = 831.24, y = -812.67, z = 25.89}, -- Ottos @ zip 8190 (A Gabz MLO)
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 110.24,  y = 6626.63,  z = 31.77}, -- Paleto Bay @ zip 1012
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 1141.54, y = -779.90,  z = 57.58}, -- Mirror Park
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = -35.92,  y = -1052.32, z = 28.38}, -- Bennys near PDM (A Gabz MLO)
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 2511.34, y = 4109.47,  z = 38.10}, -- Sandy Shores @ zip 2048
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = -69.38,  y = -1341.15, z = 28.80}, -- South Los Santos @ zip 9044
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 479.27,  y = -1888.36, z = 25.64}, -- South Los Santos @ zip 9181
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 1174.78, y = 2640.26,  z = 37.31}, -- Grand Senora @ zip 4025
+    {title = Config.BlipName, colour = Config.BlipColor, id = Config.BlipIcon, x = 831.24,  y = -812.67,  z = 25.89}, -- Ottos @ zip 8190 (A Gabz MLO)
 }
 
 --Creating Blips
@@ -127,16 +127,8 @@ items = {
 })
 
 function pointServiceCenter1:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter1',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter1', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter1:onExit()
@@ -145,16 +137,8 @@ function pointServiceCenter1:onExit()
 end
 
 function pointServiceCenter2:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter2',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter2', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter2:onExit()
@@ -163,16 +147,8 @@ function pointServiceCenter2:onExit()
 end
 
 function pointServiceCenter3:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter3',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter3', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter3:onExit()
@@ -181,16 +157,8 @@ function pointServiceCenter3:onExit()
 end
 
 function pointServiceCenter4:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter4',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({ id = 'ServiceCenter4', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter4:onExit()
@@ -199,16 +167,8 @@ function pointServiceCenter4:onExit()
 end
 
 function pointServiceCenter5:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter5',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter5', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter5:onExit()
@@ -217,16 +177,8 @@ function pointServiceCenter5:onExit()
 end
 
 function pointServiceCenter6:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter6',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter6', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter6:onExit()
@@ -235,16 +187,8 @@ function pointServiceCenter6:onExit()
 end
 
 function pointServiceCenter7:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter7',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter7', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter7:onExit()
@@ -253,16 +197,8 @@ function pointServiceCenter7:onExit()
 end
 
 function pointServiceCenter8:onEnter()
-	lib.showTextUI(Config.TextUILabel, {
-		position = Config.TextUIPosition,
-		icon = Config.TextUIIcon,
-	})
-	lib.addRadialItem({
-		id = 'ServiceCenter8',
-		icon = Config.RadialIcon,
-		label = Config.RadialLabel,
-		menu = 'repair_shop'
-	})
+	lib.showTextUI(Config.TextUILabel, {position = Config.TextUIPosition, icon = Config.TextUIIcon})
+	lib.addRadialItem({id = 'ServiceCenter8', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop'})
 end
 
 function pointServiceCenter8:onExit()

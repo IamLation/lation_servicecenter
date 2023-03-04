@@ -9,6 +9,11 @@ Config.CleanCost = 200 -- Only used if "Config.RandomCosts = false", otherwise c
 Config.UseAccount = 'money' -- How you want to charge the player. Either with their bank (Config.UseAccount = 'bank'), or with cash (set Config.useAccount = 'money')
 Config.BankTransactionLabel = 'Service Center' -- If Config.UseAccount = 'bank', then this is the description of the transaction displayed in the banking interface (if applicable)
 
+-- Blip Configs
+Config.BlipName = 'Service Center' -- The name of the blip on the map for service center locations
+Config.BlipIcon = 566 -- The icon for the map blips (icons can be found @ https://docs.fivem.net/docs/game-references/blips/)
+Config.BlipColor = 0 -- The color of the map blips (colors can be found @ https://docs.fivem.net/docs/game-references/blips/#blip-colors)
+
 -- TextUI Configs
 Config.TextUILabel = 'Z - Service Center' -- The text displayed on the TextUI when entering the service center locations
 Config.TextUIPosition = 'left-center' -- The location of the TextUI when entering the service center locations (right-center/left-center/top-center)
