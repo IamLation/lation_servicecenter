@@ -17,6 +17,3 @@ A simple automated mechanic script for repairing & cleaning vehicles on the go u
 
 ## Preview
 [Streamable - Salt Service Center](https://streamable.com/q9miw8)
-
-## Join Discord
-[Click to Join Discord](https://discord.gg/rwWNDRBYS4)
