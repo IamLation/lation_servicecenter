@@ -1,7 +1,4 @@
-ESX = exports["es_extended"]:getSharedObject()
-
-RegisterNetEvent('salt_servicecenter:payRepair')
-AddEventHandler('salt_servicecenter:payRepair', function()
+lib.callback.register('salt_servicecenter:payRepair', function()
     if Config.RandomCosts then
         local repairPrice = math.random(Config.RepairCostMinimum, Config.RepairCostMaximum)
         local source = source
@@ -16,8 +13,7 @@ AddEventHandler('salt_servicecenter:payRepair', function()
     end
 end)
 
-RegisterNetEvent('salt_servicecenter:payClean')
-AddEventHandler('salt_servicecenter:payClean', function()
+lib.callback.register('salt_servicecenter:payClean', function()
     if Config.RandomCosts then
         local cleanPrice = math.random(Config.CleanCostMinimum, Config.CleanCostMaximum)
         local source = source

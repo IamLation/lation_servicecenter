@@ -6,7 +6,7 @@ lua54 'yes'
 
 author 'Lation#0001'
 description 'A simple automated mechanic script for repairing and cleaning vehicles on the go'
-version '1.0.1'
+version '1.1.0'
 
 client_script 'client/*.lua'
 
