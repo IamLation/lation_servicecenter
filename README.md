@@ -1,9 +1,9 @@
-# Salt Service Center
+# Lation's Service Center
 
 A simple automated mechanic script for repairing & cleaning vehicles on the go utilizing ox_lib radial menu.
 
 ## Features
-- Optimized 0.00 on use & idle
+- Optimized 0.00 on use & idle (depending on your config options)
 - Supports ESX / easy to convert
 - Highly detailed config file
 
@@ -12,11 +12,11 @@ A simple automated mechanic script for repairing & cleaning vehicles on the go u
 
 ## Installation
 - Ensure you have ox_lib installed
-- Add salt_servicecenter to your 'resources' directory
-- Add 'ensure salt_servicecenter' in your 'server.cgf'
+- Add lation_servicecenter to your 'resources' directory
+- Add 'ensure lation_servicecenter' in your 'server.cgf'
 
 ## Preview
-[Streamable - Salt Service Center](https://streamable.com/q9miw8)
+[Streamable - Lation's Service Center](https://streamable.com/q9miw8)
 
 ## Join Discord
-[Click to Join Discord](https://discord.gg/rwWNDRBYS4)
+[Click here to join our Discord](https://discord.gg/9EbY4nM5uu)
