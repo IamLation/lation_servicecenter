@@ -3,7 +3,7 @@
 A simple automated mechanic script for repairing & cleaning vehicles on the go utilizing ox_lib radial menu.
 
 ## Features
-- Optimized 0.00 on use & idle
+- Optimized 0.00 on use & idle (depending on config options)
 - Supports ESX / easy to convert
 - Highly detailed config file
 
