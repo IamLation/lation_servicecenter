@@ -3,9 +3,13 @@
 A simple automated mechanic script for repairing & cleaning vehicles on the go utilizing ox_lib radial menu.
 
 ## Features
-- Optimized 0.00 on use & idle (depending on your config options)
+- Easily create as many shops as you'd like
+- Choose between using the radial menu or TextUI
+- Set fixed or randomized costs for repairs & cleans
+- Disable the shops if Mechanics are online
+- Optimized 0.00-0.01 on use & idle (depending on your config options)
 - Supports ESX / easy to convert
-- Highly detailed config file
+- Highly detailed & easily editable config file for many customizations
 
 ## Dependency
 - [ox_lib](https://github.com/overextended/ox_lib/releases)

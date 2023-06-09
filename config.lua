@@ -21,6 +21,9 @@ Config.ShopBlips = {
 }
 
 -- Miscellaneous Configs
+Config.DisableIfMechanicOnline = true -- If true, you cannot use the service centers while mechanics are online. If false, you can use all the time.
+Config.MechanicsOnline = 1 -- How many mechanics should be online to disable the service centers? (Only used if Config.DisableIfMechanicOnline = true)
+Config.MechanicJobs = { 'mechanic', 'greasemonkey' } -- All jobs that are mechanic jobs (only used if Config.DisableIfMechanicOnline = true)
 Config.EnablePressKey = false -- Have players press a key to start the repair or clean (this will disable the radial menu completely)
 Config.RepairKey = 38 -- The key to press to start repairing the vehicle if Config.EnablePressKey = true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
 Config.CleanKey = 47 -- The key to press to start cleaning the vehicle if Config.EnablePressKey = true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
@@ -66,5 +69,6 @@ Notifications = {
     repairSuccess = 'Your vehicle was repaired and you were charged $',
     cleanSuccess = 'Your vehicle was cleaned and you were charged $',
     repairCancelled = 'You cancelled the repair.',
-    cleanCancelled = 'You cancelled the cleaning.'
+    cleanCancelled = 'You cancelled the cleaning.',
+    tooManyMechanics = 'There are Mechanics available, you should visit them instead.'
 }

@@ -23,24 +23,51 @@ function repairVehicle()
 			vehicle = GetVehiclePedIsIn(playerPed, false)
 		end
 		if DoesEntityExist(vehicle) then
-            SetVehicleDoorOpen(vehicle, 4, false, false)
-            if lib.progressCircle({
-                duration = Config.RepairTime,
-                label = Config.RepairProgressLabel,
-                position = Config.ProgressPosition,
-                useWhileDead = false,
-                canCancel = true,
-                disable = {
-                    car = true,
-                }
-                }) then
-                    SetVehicleFixed(vehicle)
-                    SetVehicleDoorShut(vehicle, 4, false)
-					lib.callback.await('salt_servicecenter:payRepair')
-                else
-                SetVehicleDoorShut(vehicle, 4, false)
-                lib.notify({ description = Notifications.repairCancelled, type = 'error', position = Config.NotifyPosition })
-            end
+			if Config.DisableIfMechanicOnline then
+				local mechanicsOnline = lib.callback.await('lation_servicecenter:getMechanics', mechanicsOnline)
+				print(mechanicsOnline)
+				if mechanicsOnline >= Config.MechanicsOnline then
+					lib.notify({ description = Notifications.tooManyMechanics, type = 'error', position = Config.NotifyPosition })
+				else
+					SetVehicleDoorOpen(vehicle, 4, false, false)
+					if lib.progressCircle({
+						duration = Config.RepairTime,
+						label = Config.RepairProgressLabel,
+						position = Config.ProgressPosition,
+						useWhileDead = false,
+						canCancel = true,
+						disable = {
+							car = true,
+						}}) 
+					then
+						SetVehicleFixed(vehicle)
+						SetVehicleDoorShut(vehicle, 4, false)
+						lib.callback.await('lation_servicecenter:payRepair')
+					else
+						SetVehicleDoorShut(vehicle, 4, false)
+						lib.notify({ description = Notifications.repairCancelled, type = 'error', position = Config.NotifyPosition })
+					end
+				end
+			else
+				SetVehicleDoorOpen(vehicle, 4, false, false)
+				if lib.progressCircle({
+					duration = Config.RepairTime,
+					label = Config.RepairProgressLabel,
+					position = Config.ProgressPosition,
+					useWhileDead = false,
+					canCancel = true,
+					disable = {
+						car = true,
+					}
+					}) then
+						SetVehicleFixed(vehicle)
+						SetVehicleDoorShut(vehicle, 4, false)
+						lib.callback.await('lation_servicecenter:payRepair')
+					else
+					SetVehicleDoorShut(vehicle, 4, false)
+					lib.notify({ description = Notifications.repairCancelled, type = 'error', position = Config.NotifyPosition })
+				end
+			end
 		end
 	end
 end
@@ -55,21 +82,45 @@ function cleanVehicle()
 			vehicle = GetVehiclePedIsIn(playerPed, false)
 		end
 		if DoesEntityExist(vehicle) then
-            if lib.progressCircle({
-                duration = Config.CleanTime,
-                label = Config.CleaningProgressLabel,
-                position = Config.ProgressPosition,
-                useWhileDead = false,
-                canCancel = true,
-                disable = {
-                    car = true,
-                }
-                }) then
-                    SetVehicleDirtLevel(vehicle, 0.0)
-					lib.callback.await('salt_servicecenter:payClean')
-                else
-                lib.notify({ description = Notifications.cleanCancelled, type = 'error', position = Config.NotifyPosition })
-            end
+			if Config.DisableIfMechanicOnline then
+				local mechanicsOnline = lib.callback.await('lation_servicecenter:getMechanics', mechanicsOnline)
+				print(mechanicsOnline)
+				if mechanicsOnline >= Config.MechanicsOnline then
+					lib.notify({ description = Notifications.tooManyMechanics, type = 'error', position = Config.NotifyPosition })
+				else
+					if lib.progressCircle({
+						duration = Config.CleanTime,
+						label = Config.CleaningProgressLabel,
+						position = Config.ProgressPosition,
+						useWhileDead = false,
+						canCancel = true,
+						disable = {
+							car = true,
+						}
+						}) then
+							SetVehicleDirtLevel(vehicle, 0.0)
+							lib.callback.await('lation_servicecenter:payClean')
+						else
+						lib.notify({ description = Notifications.cleanCancelled, type = 'error', position = Config.NotifyPosition })
+					end
+				end
+			else
+				if lib.progressCircle({
+					duration = Config.CleanTime,
+					label = Config.CleaningProgressLabel,
+					position = Config.ProgressPosition,
+					useWhileDead = false,
+					canCancel = true,
+					disable = {
+						car = true,
+					}
+					}) then
+						SetVehicleDirtLevel(vehicle, 0.0)
+						lib.callback.await('lation_servicecenter:payClean')
+					else
+					lib.notify({ description = Notifications.cleanCancelled, type = 'error', position = Config.NotifyPosition })
+				end
+			end
 		end
 	end
 end
