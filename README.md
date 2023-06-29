@@ -2,6 +2,9 @@
 
 A simple automated mechanic script for repairing & cleaning vehicles on the go utilizing ox_lib radial menu.
 
+## Support & More
+[Click here to join our Discord](https://discord.gg/9EbY4nM5uu)
+
 ## Features
 - Easily create as many shops as you'd like
 - Choose between using the radial menu or TextUI
@@ -21,6 +24,3 @@ A simple automated mechanic script for repairing & cleaning vehicles on the go u
 
 ## Preview
 [Streamable - Lation's Service Center](https://streamable.com/q9miw8)
-
-## Join Discord
-[Click here to join our Discord](https://discord.gg/9EbY4nM5uu)
