@@ -15,12 +15,18 @@ end)
 
 -- Repair Vehicle
 function repairVehicle()
-	local playerPed = PlayerPedId()
+	local playerPed = cache.ped
 	local coords = GetEntityCoords(playerPed)
 	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 5.0) then
 		local vehicle
 		if IsPedInAnyVehicle(playerPed, false) then
 			vehicle = GetVehiclePedIsIn(playerPed, false)
+		else
+			lib.notify({
+				title = 'Car Services',
+				description = 'you must be inside a vehicle',
+				position = 'center-right',
+				type = 'error'})
 		end
 		if DoesEntityExist(vehicle) then
 			if Config.DisableIfMechanicOnline then
@@ -68,18 +74,25 @@ function repairVehicle()
 					lib.notify({ description = Notifications.repairCancelled, type = 'error', position = Config.NotifyPosition })
 				end
 			end
+
 		end
 	end
 end
 
 --Clean Vehicle
 function cleanVehicle()
-	local playerPed = PlayerPedId()
+	local playerPed = cache.ped
 	local coords = GetEntityCoords(playerPed)
 	if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 5.0) then
 		local vehicle
 		if IsPedInAnyVehicle(playerPed, false) then
 			vehicle = GetVehiclePedIsIn(playerPed, false)
+		else
+			lib.notify({
+				title = 'Car Services',
+				description = 'you must be inside a vehicle',
+				position = 'center-right',
+				type = 'error'})
 		end
 		if DoesEntityExist(vehicle) then
 			if Config.DisableIfMechanicOnline then
@@ -152,12 +165,14 @@ for k,v in pairs(Config.ServiceCenters) do
     local point = lib.points.new({ coords = v, distance = 5 })
 	if not Config.EnablePressKey then
 		function point:onEnter()
-			local playerPed = PlayerPedId()
-			if GetPedInVehicleSeat(GetVehiclePedIsUsing(playerPed), -1) == playerPed then
-			lib.showTextUI(Config.TextUILabel, { position = Config.TextUIPosition, icon = Config.TextUIIcon })
-			lib.addRadialItem({ id = 'serviceCenters', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop' })
+			local playerPed = cache.ped
+			if IsPedInAnyVehicle(playerPed, false) then
+				if GetPedInVehicleSeat(GetVehiclePedIsUsing(playerPed), -1) == playerPed then
+					lib.showTextUI(Config.TextUILabel, { position = Config.TextUIPosition, icon = Config.TextUIIcon })
+					lib.addRadialItem({ id = 'serviceCenters', icon = Config.RadialIcon, label = Config.RadialLabel, menu = 'repair_shop' })
+				end
+			end
 		end
-	end
 		function point:onExit()
 			lib.hideTextUI()
 			lib.removeRadialItem('serviceCenters')
@@ -172,11 +187,13 @@ for k,v in pairs(Config.ServiceCenters) do
 			end
 		end
 		function point:onEnter()
-			local playerPed = PlayerPedId()
-			if GetPedInVehicleSeat(GetVehiclePedIsUsing(playerPed), -1) == playerPed then
-			lib.showTextUI(Config.TextUILabelP, { position = Config.TextUIPositionP, icon = Config.TextUIIconP })
+			local playerPed = cache.ped
+			if IsPedInAnyVehicle(playerPed, false) then
+				if GetPedInVehicleSeat(GetVehiclePedIsUsing(playerPed), -1) == playerPed then
+					lib.showTextUI(Config.TextUILabelP, { position = Config.TextUIPositionP, icon = Config.TextUIIconP })
+				end
+			end
 		end
-	end
 		function point:onExit()
 			lib.hideTextUI()
 		end
