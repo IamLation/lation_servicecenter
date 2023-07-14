@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "lib",
+        "cache",
+        "repairVehicle",
+        "ESX",
+        "AddTextComponentString",
+        "cleanVehicle"
+    ]
+}

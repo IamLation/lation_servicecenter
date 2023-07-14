@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Framework = 'esx' -- 'esx', 'qbcore' or 'standalone' (must configure pay, etc events manually if using standalone)
+
 -- Shop Locations (you can add as many as you wish here)
 Config.ServiceCenters = {
 	vec3(110.24, 6626.63, 31.77),
@@ -22,7 +24,7 @@ Config.ShopBlips = {
 
 -- Miscellaneous Configs
 Config.DisableIfMechanicOnline = true -- If true, you cannot use the service centers while mechanics are online. If false, you can use all the time.
-Config.MechanicsOnline = 1 -- How many mechanics should be online to disable the service centers? (Only used if Config.DisableIfMechanicOnline = true)
+Config.MechanicsOnline = 3 -- How many mechanics should be online to disable the service centers? (Only used if Config.DisableIfMechanicOnline = true)
 Config.MechanicJobs = { 'mechanic', 'greasemonkey' } -- All jobs that are mechanic jobs (only used if Config.DisableIfMechanicOnline = true)
 Config.EnablePressKey = false -- Have players press a key to start the repair or clean (this will disable the radial menu completely)
 Config.RepairKey = 38 -- The key to press to start repairing the vehicle if Config.EnablePressKey = true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
@@ -32,8 +34,7 @@ Config.ProgressPosition = 'middle' -- The location of the progress circle (middl
 Config.RandomCosts = true -- If true, costs to repair/clean a vehicle can be randomized within the ranges (minimum/maximum) below
 Config.RepairCost = 500 -- Only used if "Config.RandomCosts = false", otherwise can be ignored
 Config.CleanCost = 200 -- Only used if "Config.RandomCosts = false", otherwise can be ignored
-Config.UseAccount = 'money' -- How you want to charge the player. Either with their bank (Config.UseAccount = 'bank'), or with cash (set Config.useAccount = 'money')
-Config.BankTransactionLabel = 'Service Center' -- If Config.UseAccount = 'bank', then this is the description of the transaction displayed in the banking interface (if applicable)
+Config.UseAccount = 'bank' -- How you want to charge the player. Either with their bank (Config.UseAccount = 'bank'), or with cash (set Config.useAccount = 'money')
 
 -- Repair Configs
 Config.RepairTime = 10000 -- How long in milliseconds the repair process should take
@@ -70,5 +71,7 @@ Notifications = {
     cleanSuccess = 'Your vehicle was cleaned and you were charged $',
     repairCancelled = 'You cancelled the repair.',
     cleanCancelled = 'You cancelled the cleaning.',
-    tooManyMechanics = 'There are Mechanics available, you should visit them instead.'
+    tooManyMechanics = 'There are Mechanics available, you should visit them instead.',
+    notInVehicle = 'You must be inside a vehicle to do this',
+    notEnoughMoney = 'You do not have enough money to do this'
 }
