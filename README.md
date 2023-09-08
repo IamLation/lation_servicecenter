@@ -2,8 +2,9 @@
 
 A simple automated mechanic resource for ESX & QBcore.
 
-## Support & More
+## Support, Scripts & More
 [Click here to join our Discord](https://discord.gg/9EbY4nM5uu)
+[Click here to visit our Store](https://lationscripts.com/github)
 
 ## Features
 - Supports ESX & QBCore
