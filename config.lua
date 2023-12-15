@@ -1,6 +1,8 @@
 Config = {}
 
-Config.Framework = 'esx' -- 'esx', 'qbcore' or 'standalone' (must configure pay, etc events manually if using standalone)
+-- Do you want to be notified via server console if an update is available?
+-- True if yes, false if no
+Config.VersionCheck = true
 
 -- Shop Locations (you can add as many as you wish here)
 Config.ServiceCenters = {
@@ -14,64 +16,91 @@ Config.ServiceCenters = {
 
 --Blip Locations (if you want a blip to display at the above locations, add it here)
 Config.ShopBlips = {
-    {title = 'Service Center', colour = 0, id = 566, x = 110.24,  y = 6626.63,  z = 31.77},
-    {title = 'Service Center', colour = 0, id = 566, x = 1141.54, y = -779.90,  z = 57.58},
-    {title = 'Service Center', colour = 0, id = 566, x = 2511.34, y = 4109.47,  z = 38.10},
-    {title = 'Service Center', colour = 0, id = 566, x = -69.38,  y = -1341.15, z = 28.80},
-    {title = 'Service Center', colour = 0, id = 566, x = 479.27,  y = -1888.36, z = 25.64},
-    {title = 'Service Center', colour = 0, id = 566, x = 1174.78, y = 2640.26,  z = 37.31},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(110.24, 6626.63, 31.77)},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(1141.54, -779.90, 57.58)},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(2511.34, 4109.47, 38.10)},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(-69.38, -1341.15, 28.80)},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(479.27, -1888.36, 25.64)},
+    {title = 'Service Center', color = 0, sprite = 566, scale = 0.8, coords = vec3(1174.78, 2640.26, 37.31)},
 }
 
--- Miscellaneous Configs
+-- Miscellaneous configurations
 Config.DisableIfMechanicOnline = true -- If true, you cannot use the service centers while mechanics are online. If false, you can use all the time.
 Config.MechanicsOnline = 3 -- How many mechanics should be online to disable the service centers? (Only used if Config.DisableIfMechanicOnline = true)
 Config.MechanicJobs = { 'mechanic', 'greasemonkey' } -- All jobs that are mechanic jobs (only used if Config.DisableIfMechanicOnline = true)
-Config.EnablePressKey = false -- Have players press a key to start the repair or clean (this will disable the radial menu completely)
-Config.RepairKey = 38 -- The key to press to start repairing the vehicle if Config.EnablePressKey = true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
-Config.CleanKey = 47 -- The key to press to start cleaning the vehicle if Config.EnablePressKey = true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
-Config.NotifyPosition = 'top' -- The location of your notifications (top/top-right/top-left/bottom/bottom-right/bottom-left/center-right/center-left)
-Config.ProgressPosition = 'middle' -- The location of the progress circle (middle/bottom)
+Config.UseTextUI = false -- Have players press a key to start a repair or clean (this will disable the radial menu completely)
+Config.RepairEngineKey = 38 -- The key to press to start repairing the engine if EnablePressKey is true (view all control IDs here: https://docs.fivem.net/docs/game-references/controls/#controls)
+Config.RepairBodyKey = 44 -- The key to press to start repairing the body if EnablePressKey is true
+Config.CleanKey = 47 -- The key to press to start cleaning the vehicle if EnablePressKey is true
 Config.RandomCosts = true -- If true, costs to repair/clean a vehicle can be randomized within the ranges (minimum/maximum) below
-Config.RepairCost = 500 -- Only used if "Config.RandomCosts = false", otherwise can be ignored
-Config.CleanCost = 200 -- Only used if "Config.RandomCosts = false", otherwise can be ignored
-Config.UseAccount = 'bank' -- How you want to charge the player. Either with their bank (Config.UseAccount = 'bank'), or with cash (set Config.useAccount = 'money')
+Config.RepairEngineCost = 500 -- Only used if Config.RandomCosts is false, otherwise can be ignored
+Config.RepairBodyCost = 400 -- Only used if Config.RandomCosts is false, otherwise can be ignored
+Config.CleanCost = 200 -- Only used if Config.RandomCosts is false, otherwise can be ignored
+Config.UseAccount = 'bank' -- How you want to charge the player for a service - either with 'bank' or 'money'/'cash'
+Config.ProgressType = 'cirlce' -- Select your ox_lib progress UI preference - options are 'circle' and 'bar'
 
--- Repair Configs
-Config.RepairTime = 10000 -- How long in milliseconds the repair process should take
-Config.RepairCostMinimum = 425 -- If "Config.RandomCosts = true", then how much a repair should cost at minimum
-Config.RepairCostMaximum = 1050 -- If "Config.RandomCosts = true", then how much a repair should cost at most
-Config.RepairProgressLabel = 'Repairing..'
+-- Repair engine configurations
+Config.RepairEngineTime = 10000 -- How long in milliseconds the repair process should take
+Config.RepairEngineCostMinimum = 425 -- If Config.RandomCosts is true, then how much a repair should cost at minimum?
+Config.RepairEngineCostMaximum = 1050 -- If Config.RandomCosts is true, then how much a repair should cost at most?
+Config.RepairEngineLabel = 'Repairing engine..'
 
--- Cleaning Configs
+-- Repair body configurations
+Config.RepairBodyTime = 10000 -- How long in milliseconds repairing the body should take
+Config.RepairBodyCostMin = 300 -- If Config.RandomCosts is true, then how much should a repair cost at minimum?
+Config.RepairBodyCostMax = 675 -- If Config.RandomCosts is true, then how much should a repair cost at maximum?
+Config.RepairBodyLabel = 'Repairing body..'
+
+-- Clean vehicle configurations
 Config.CleanTime = 10000 -- How long in milliseconds the cleaning process should take
-Config.CleanCostMinimum = 75 -- If "Config.RandomCosts = true", then how much a cleaning should cost at minimum
-Config.CleanCostMaximum = 300 -- If "Config.RandomCosts = true", then how much a cleaning should cost at most
-Config.CleaningProgressLabel = 'Cleaning..'
+Config.CleanCostMinimum = 75 -- If Config.RandomCosts is true, then how much a cleaning should cost at minimum?
+Config.CleanCostMaximum = 300 -- If Config.RandomCosts is true, then how much a cleaning should cost at most?
+Config.CleaningLabel = 'Cleaning..'
 
--- TextUI Configs for Radial Menu (only used if Config.EnablePressKey = false)
+-- TextUI configurations for Radial Menu (only used if Config.UseTextUI = false)
 Config.TextUILabel = 'Z - Service Center' -- The text displayed on the TextUI when entering the service center locations
 Config.TextUIPosition = 'left-center' -- The location of the TextUI when entering the service center locations (right-center/left-center/top-center)
 Config.TextUIIcon = 'tools' -- The icon displayed on the TextUI when entering the service center locations (You can find icons @ https://fontawesome.com/v5/search?o=r&m=free)
 
--- TextUI Configs for PressKey (only used if Config.EnablePressKey = true)
-Config.TextUILabelP = 'E - Repair  \n G - Clean' -- The text displayed on the TextUI when entering the service center locations
+-- TextUI confirmations (only used if Config.UseTextUI = true)
+Config.TextUILabelP = '**Service Center**  \n **E** - Repair Engine  \n **Q** - Repair Body  \n **G** - Clean Vehicle' -- The text displayed on the TextUI when entering the service center locations
 Config.TextUIPositionP = 'left-center' -- The location of the TextUI when entering the service center locations (right-center/left-center/top-center)
 Config.TextUIIconP = 'tools' -- The icon displayed on the TextUI when entering the service center locations (You can find icons @ https://fontawesome.com/v5/search?o=r&m=free)
 
--- Radial Menu Configs (only used if Config.EnablePressKey = false)
+-- Radial menu configurations (only used if Config.UseTextUI = false)
 Config.RadialIcon = 'tools' -- The icon displayed on the main radial menu option when entering a service center location
 Config.RadialLabel = 'Service' -- The text displayed on the main radial menu option when entering a service center location
-Config.RadialSubMenuRepairIcon = 'tools' -- The icon displayed on the radial submenu for the repair option (You can find icons @ https://fontawesome.com/v5/search?o=r&m=free)
-Config.RadialSubMenuRepairLabel = 'Repair' -- The text displayed on the radial submenu for the repair option
-Config.RadialSubMenuCleanIcon = 'soap' -- The icon displayed on the radial submenu for the cleaning option (You can find icons @ https://fontawesome.com/v5/search?o=r&m=free)
-Config.RadialSubMenuCleanLabel = 'Clean' -- The text displayed on the radial submenu for the cleaning option
+Config.RadialSubMenuRepairEngineIcon = 'tools' -- The icon displayed on the radial submenu for the repair option (You can find icons @ https://fontawesome.com/v5/search?o=r&m=free)
+Config.RadialSubMenuRepairEngineLabel = 'Repair Engine' -- The text displayed on the radial submenu for the repair option
+Config.RadialSubMenuRepairBodyIcon = 'car'
+Config.RadialSubMenuRepairBodyLabel = 'Repair Body'
+Config.RadialSubMenuCleanIcon = 'soap'
+Config.RadialSubMenuCleanLabel = 'Clean'
 
-Notifications = {
-    repairSuccess = 'Your vehicle was repaired and you were charged $',
-    cleanSuccess = 'Your vehicle was cleaned and you were charged $',
-    repairCancelled = 'You cancelled the repair.',
-    cleanCancelled = 'You cancelled the cleaning.',
-    tooManyMechanics = 'There are Mechanics available, you should visit them instead.',
-    notInVehicle = 'You must be inside a vehicle to do this',
-    notEnoughMoney = 'You do not have enough money to do this'
+-- ox_lib progress bars/circles configurations
+Config.Progress = {
+    clean = {
+        duration = Config.CleanTime,
+		label = Config.CleaningLabel,
+		position = 'bottom',
+		useWhileDead = false,
+		canCancel = true,
+		disable = { car = true, move = true, combat = true }
+    },
+    repairEngine = {
+        duration = Config.RepairEngineTime,
+		label = Config.RepairEngineLabel,
+		position = 'bottom',
+		useWhileDead = false,
+		canCancel = true,
+		disable = { car = true, move = true, combat = true }
+    },
+    repairBody = {
+        duration = Config.RepairBodyTime,
+		label = Config.RepairBodyLabel,
+		position = 'bottom',
+		useWhileDead = false,
+		canCancel = true,
+		disable = { car = true, move = true, combat = true }
+    }
 }

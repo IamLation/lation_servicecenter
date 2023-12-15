@@ -1,18 +1,25 @@
 -- Visit us on Discord: https://discord.gg/9EbY4nM5uu
 
 fx_version 'cerulean'
-games { 'gta5' }
+game 'gta5'
 lua54 'yes'
 
 author 'iamlation'
 description 'A simple automated mechanic resource for FiveM'
-version '2.0.0'
+version '2.1.0'
 
-client_script 'client/*.lua'
+client_scripts {
+    'bridge/client.lua',
+    'client/*.lua',
+}
 
-server_script 'server/*.lua'
+server_scripts {
+    'bridge/server.lua',
+    'server/*.lua',
+}
 
 shared_scripts {
     'config.lua',
+    'strings.lua',
     '@ox_lib/init.lua'
 }
